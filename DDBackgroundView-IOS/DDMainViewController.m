@@ -75,7 +75,7 @@
 
 - (void)applyTo:(DDBackgroundView*)bg from:(DDFlipsideViewController*)controller {
     bg.alpha = 0.9;
-    bg.backgroundCornerRadius = 10;
+    bg.backgroundCornerRadius = 100;
     bg.backgroundColor = [UIColor blueColor];
     bg.backgroundPattern = [UIImage imageNamed:@"pattern"];
     
