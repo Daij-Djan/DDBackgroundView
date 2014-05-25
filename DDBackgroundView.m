@@ -171,12 +171,16 @@
 }
 
 - (void)drawRect:(__unused Rect)rect {
+    rect = InsetRect(self.bounds, _borderWidth/2.0f, _borderWidth/2.0f);
 #if TARGET_OS_IPHONE
-	BezierPath *aPath = [BezierPath bezierPathWithRect:self.bounds]; ///clipping is applied to layer
+	BezierPath *aPath = [BezierPath bezierPathWithRect:rect]; ///clipping is applied to layer
 #else
+	BezierPath *aPath = [BezierPath bezierPathWithRoundedRect:rect xRadius:_backgroundCornerRadius yRadius:_backgroundCornerRadius];
+
+    //clear bg on osx
 	[[Color clearColor] set];
 	NSRectFillUsingOperation(self.bounds, NSCompositeSourceOver);
-	BezierPath *aPath = [BezierPath bezierPathWithRoundedRect:self.bounds xRadius:_backgroundCornerRadius yRadius:_backgroundCornerRadius];
+    
 	[self drawColor:aPath]; //for ios, this is implicit
 #endif
     

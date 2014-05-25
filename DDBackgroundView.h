@@ -23,6 +23,7 @@
 #define Rect CGRect
 #define setNeedsDisplay [self setNeedsDisplay]
 #define EqualSizes CGSizeEqualToSize
+#define InsetRect CGRectInset
 #else
 #import <Cocoa/Cocoa.h>
 #define View NSView
@@ -33,6 +34,7 @@
 #define Rect NSRect
 #define setNeedsDisplay [self setNeedsDisplay:YES]
 #define EqualSizes NSEqualSizes
+#define InsetRect NSInsetRect
 
 #define USE_NATIVE_NSGRADIENT 1
 #endif
